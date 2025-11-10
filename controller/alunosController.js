@@ -65,20 +65,21 @@ exports.updateAlunos = async (req, res) => {
 
 exports.deleteAlunos = async (req, res) => {
   try {
-    const deletedAluno = await Aluno.findByIdAndUpdate(req.params.id, {
-      active: false,
-    });
 
-    if (!deletedAluno) {
+    const aluno = await Aluno.findById(req.params.id);
+
+    if (!aluno) {
       return res.status(404).json({
         status: "falha",
         message: "Aluno não encontrado",
       });
     }
+    
+    await Aluno.findByIdAndDelete(aluno._id);
 
     res.status(204).json({
       status: "sucesso",
-      data: null,
+      message: "Aluno deletado com sucesso"
     });
   } catch (err) {
     res.status(500).json({
@@ -110,7 +111,8 @@ exports.getAllAlunos = async (req, res) => {
 
 exports.getAlunosById = async (req, res) => {
   try {
-    const aluno = req.aluno;
+    const aluno = await Aluno.findById(req.params.id);
+
 
     if (!aluno) {
       return res.status(404).json({
