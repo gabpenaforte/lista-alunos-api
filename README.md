@@ -4,11 +4,10 @@
 2. Crie um banco de dados no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 3. Atualize as variáveis de ambiente com suas próprias credenciais:
 
-   NODE_ENV=development
-   PORT=3000
+   NODE_ENV=development<br>
+   PORT=3000<br>
    DATABASE=<CONNECTION_STRING_GERADA_PELO_MONGODB>
-   DATABASE_PASSWORD=<PASSWORD_GERADA_PELO_MONGODB>
 
-   4. Abra um terminal no diretorio do projeto
+   4. Abra um terminal no diretório do projeto
    5. Rode 'npm i' ou 'npm install'
    6. rode 'npm start' para rodar o projeto localmente
